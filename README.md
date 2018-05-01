@@ -1,1 +1,3 @@
-# hang-man-v1
+# Hangman v1
+
+Hangman is a word-guessing game. One computer picks a secret word and the player tries to guess it.
