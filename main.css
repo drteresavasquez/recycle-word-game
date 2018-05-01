@@ -1,0 +1,22 @@
+.container{
+    align-items: center;
+}
+
+.message{
+    justify-content: center;
+    color:red;
+    font-size: 3em;
+}
+
+#progress{
+    font-size: 5em;
+    text-align: center;
+}
+
+#letter{
+    margin-right: 20px;
+}
+
+.form-inline{
+    justify-content: center;
+}
