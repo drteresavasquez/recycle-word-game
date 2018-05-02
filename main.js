@@ -15,6 +15,7 @@ for(let i = 0; i < word.length; i++){
     answerArray[i] = "_";
 }
 
+/********** LOGIC...DO NOT ALTER BELOW THIS LINE ***********/
 $("#progress").html(`${answerArray.join(" ")}`);
 
 $("#input").append(`
