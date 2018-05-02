@@ -13,7 +13,7 @@
     text-align: center;
 }
 
-#letter{
+#letter, #addWordInput{
     margin-right: 20px;
 }
 

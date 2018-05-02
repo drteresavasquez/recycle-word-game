@@ -5,6 +5,26 @@ let words = [
     "pancake"
 ];
 
+function showAllWords(){
+    $(".showWords").html(`<ul id="wordList"></ul>`);
+
+    words.forEach((word)=>{
+        $("#wordList").append(`<li>${word}</li>`)
+    })
+}
+
+showAllWords();
+
+$("#addWordBtn").on("click",(e)=>{
+    e.preventDefault();
+    if(!words.includes($("#addWordInput").val())){
+        words.push($("#addWordInput").val());
+    }
+
+    showAllWords();
+    $("#addWordInput").val("");
+})
+
 let word = words[Math.floor(Math.random() * words.length)];
 console.log(word);
 
