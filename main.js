@@ -4,6 +4,7 @@ let words = [
     "amazing",
     "pancake"
 ];
+let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
 let word = words[Math.floor(Math.random() * words.length)];
 console.log(word);
@@ -21,39 +22,49 @@ for(let i = 0; i < word.length; i++){
 $("#progress").html(`${answerArray.join(" ")}`);
 
 $("#input").append(`
-    <form class="form-inline">
-        <input type="text" class="form-control" id="letter" placeholder="Your Guess">
-        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
-    </form>
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+<div id="alpha">
+<div class="btn-group mr-2 btn-group-lg first" role="group" aria-label="First group">
+</div>
+<div class="btn-group mr-2 btn-group-lg second" role="group" aria-label="Second group">
+</div>
+</div>
+</div>
 `);
 
-$("#submit").click((e)=>{
-    e.preventDefault();
-    let guess = $("#letter").val();
-    $(".message").html("");
-    if(guess.length !== 1 || guess === " "){
-        alert("Please enter ONE letter");
+alphabet.forEach((letter, index)=>{
+    if(index+1 < 14){
+        $(".first").append(`
+    <button type="button" class="btn btn-secondary indLetter" id="${letter}">${letter}</button>`);
     }else{
-        console.log("GUESS 2",guess);
-        for(let j = 0; j < word.length; j++){
-            if(word[j] === guess){
-                answerArray[j] = guess;
-                remainingLetters--;
-                $("#progress").html(`${answerArray.join(" ")}`);
-                $("#letter").val("");
-            }else{
-                $("#letter").val("");
-            }
+        $(".second").append(`
+    <button type="button" class="btn btn-secondary indLetter" id="${letter}">${letter}</button>`);
+    }
+    
+});
 
-            if(remainingLetters <= 0){
-                $("#progress").html(`${answerArray.join(" ")}`);
-                console.log(remainingLetters);
-                $(".modal-body").append(`Congrats! Your word was <strong>${answerArray.join("")}</strong>! You got it right!`);
-                $('#winnersModal').modal('show');
-            }
+$("#alpha").on("click", (e)=>{
+    console.log(e.target.id);
+    let guess = e.target.id;
+    for(let j = 0; j < word.length; j++){
+        if(word[j] === guess){
+            $(`#${guess}`).addClass("taken");
+            answerArray[j] = guess;
+            remainingLetters--;
+            $("#progress").html(`${answerArray.join(" ")}`);
+        }else{
+            $(`#${guess}`).addClass("notHere");
+        }
+
+        if(remainingLetters <= 0){
+            $("#progress").html(`${answerArray.join(" ")}`);
+            console.log(remainingLetters);
+            $(".modal-body").html(`Congrats! Your word was <strong>${answerArray.join("")}</strong>! You got it right!`);
+            $('#winnersModal').modal('show');
         }
     }
-});
+
+})
 
 /* ADD WORD PAGE */
 function showAllWords(){
