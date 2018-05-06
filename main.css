@@ -21,8 +21,10 @@
     justify-content: center;
 }
 
-.first{
+.first, .second{
     margin-bottom: 10px;
+    width: 100%;
+    justify-content: center;
 }
 
 .indLetter{
