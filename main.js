@@ -23,12 +23,12 @@ $("#progress").html(`${answerArray.join(" ")}`);
 
 $("#input").append(`
 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-<div id="alpha">
-<div class="btn-group mr-2 btn-group-lg first" role="group" aria-label="First group">
-</div>
-<div class="btn-group mr-2 btn-group-lg second" role="group" aria-label="Second group">
-</div>
-</div>
+    <div id="alpha">
+        <div class="btn-group mr-2 btn-group-lg first" role="group" aria-label="First group">
+        </div>
+        <div class="btn-group mr-2 btn-group-lg second" role="group" aria-label="Second group">
+        </div>
+    </div>
 </div>
 `);
 
@@ -67,22 +67,22 @@ $("#alpha").on("click", (e)=>{
 })
 
 /* ADD WORD PAGE */
-function showAllWords(){
-    $(".showWords").html(`<ul id="wordList"></ul>`);
+// function showAllWords(){
+//     $(".showWords").html(`<ul id="wordList"></ul>`);
 
-    words.forEach((word)=>{
-        $("#wordList").append(`<li>${word}</li>`)
-    })
-}
+//     words.forEach((word)=>{
+//         $("#wordList").append(`<li>${word}</li>`)
+//     })
+// }
 
-showAllWords();
+// showAllWords();
 
-$("#addWordBtn").on("click",(e)=>{
-    e.preventDefault();
-    if(!words.includes($("#addWordInput").val())){
-        words.push($("#addWordInput").val());
-    }
+// $("#addWordBtn").on("click",(e)=>{
+//     e.preventDefault();
+//     if(!words.includes($("#addWordInput").val())){
+//         words.push($("#addWordInput").val());
+//     }
 
-    showAllWords();
-    $("#addWordInput").val("");
-})
+//     showAllWords();
+//     $("#addWordInput").val("");
+// })
