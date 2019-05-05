@@ -4,16 +4,24 @@ let words = [
     "landfill",
     "pollution",
     "bin",
-    "bottle"
+    "glass",
+    "paper",
+    "waste",
+    "ecosystem",
+    "reuse"
 ];
 
 let clue = [
-    "plastic",
-    "sludge",
-    "landfill",
-    "pollution",
-    "bin",
-    "bottle"
+    "A recycable container used to hold food and drink",
+    "Mixture of disgust",
+    "Largest sources of pollution",
+    "Toxic air and water",
+    "Insert plastic, cans and paper",
+    "Breakable and recycable",
+    "Comes from trees and recycable",
+    "Unwanted junk",
+    "Living space",
+    "Old thing, new way"
 ];
 
 let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
@@ -32,7 +40,7 @@ for (let i = 0; i < word.length; i++) {
 
 /* INDEX PAGE */
 
-$(".message").html(`${clue[words.indexOf(word)]}`)
+$(".message").html(`Clue: ${clue[words.indexOf(word)]}`)
 $("#progress").html(`${answerArray.join(" ")}`);
 
 $("#input").append(`
