@@ -1,8 +1,10 @@
 let words = [
-    "javascript",
-    "monkey",
-    "amazing",
-    "pancake"
+    "plastic",
+    "sludge",
+    "landfill",
+    "polution",
+    "bin",
+    "bottle"
 ];
 let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -12,7 +14,7 @@ console.log(word);
 let remainingLetters = word.length;
 
 let answerArray = [];
-for(let i = 0; i < word.length; i++){
+for (let i = 0; i < word.length; i++) {
     answerArray[i] = "_";
 }
 
@@ -32,31 +34,31 @@ $("#input").append(`
 </div>
 `);
 
-alphabet.forEach((letter, index)=>{
-    if(index+1 < 14){
+alphabet.forEach((letter, index) => {
+    if (index + 1 < 14) {
         $(".first").append(`
     <button type="button" class="btn btn-secondary indLetter" id="${letter}">${letter}</button>`);
-    }else{
+    } else {
         $(".second").append(`
     <button type="button" class="btn btn-secondary indLetter" id="${letter}">${letter}</button>`);
     }
-    
+
 });
 
-$("#alpha").on("click", (e)=>{
+$("#alpha").on("click", (e) => {
     console.log(e.target.id);
     let guess = e.target.id;
-    for(let j = 0; j < word.length; j++){
-        if(word[j] === guess){
+    for (let j = 0; j < word.length; j++) {
+        if (word[j] === guess) {
             $(`#${guess}`).addClass("taken");
             answerArray[j] = guess;
             remainingLetters--;
             $("#progress").html(`${answerArray.join(" ")}`);
-        }else{
+        } else {
             $(`#${guess}`).addClass("notHere");
         }
 
-        if(remainingLetters <= 0){
+        if (remainingLetters <= 0) {
             $("#progress").html(`${answerArray.join(" ")}`);
             console.log(remainingLetters);
             $(".modal-body").html(`Congrats! Your word was <strong>${answerArray.join("")}</strong>! You got it right!`);
