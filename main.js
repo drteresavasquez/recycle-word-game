@@ -2,7 +2,7 @@ let words = [
     "plastic",
     "sludge",
     "landfill",
-    "polution",
+    "pollution",
     "bin",
     "bottle"
 ];
