@@ -6,6 +6,16 @@ let words = [
     "bin",
     "bottle"
 ];
+
+let clue = [
+    "plastic",
+    "sludge",
+    "landfill",
+    "pollution",
+    "bin",
+    "bottle"
+];
+
 let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
 let word = words[Math.floor(Math.random() * words.length)];
@@ -21,6 +31,8 @@ for (let i = 0; i < word.length; i++) {
 /********** LOGIC...DO NOT ALTER BELOW THIS LINE ***********/
 
 /* INDEX PAGE */
+
+$(".message").html(`${clue[words.indexOf(word)]}`)
 $("#progress").html(`${answerArray.join(" ")}`);
 
 $("#input").append(`
